@@ -26,6 +26,7 @@ app.use(cors({
     // allow non-browser requests (Postman, curl)
     if(!origin) return callback(null, true);
     if(allowedOrigins.indexOf(origin) === -1){
+      console.error("Blocked CORS request from:", origin);
       return callback(new Error("CORS error: Origin not allowed"), false);
     }
     return callback(null, true);
@@ -33,6 +34,7 @@ app.use(cors({
   credentials: true,
   methods: ["GET","POST","PUT","DELETE","OPTIONS"]
 }));
+
 
 // Parse JSON
 app.use(express.json());
