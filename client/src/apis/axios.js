@@ -1,10 +1,12 @@
 import axios from "axios";
 import showToastr from "../utils/showToastr";
 import { setToLocalStorage, getFromLocalStorage } from "../utils/storage";
+import { BASE_URL } from "./constants";
 
 const DEFAULT_ERROR_NOTIFICATION = "Something went wrong!";
 
-axios.defaults.baseURL = "http://localhost:5000/api/";
+axios.defaults.baseURL = BASE_URL;
+console.log("API Base URL:", BASE_URL); // Debugging line to check the base URL
 
 const setAuthHeaders = () => {
   axios.defaults.headers = {

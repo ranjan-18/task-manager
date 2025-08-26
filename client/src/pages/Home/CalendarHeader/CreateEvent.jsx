@@ -64,7 +64,7 @@ const CreateEvent = ({
   useEffect(() => {
     if (isOpen) {
       axios
-        .get("http://localhost:5000/api/user", {
+        .get("/user", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
           },
